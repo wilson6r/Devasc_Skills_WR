@@ -9,7 +9,7 @@
 
 
 
-# Task name => Docker
+# Task name => Docker 
 # Task preparation => i first made a folder named Docker then in the folder i made 2 files a datascript.js file and a dockerfile. In the dockerfile i put this; FROM httpd:2.4 COPY templates/index.html /usr/local/apache2/htdocs/ COPY datescript.js /usr/local/apache2/htdocs/ EXPOSE 80. In the datascript file i put this; document.addEventListener("DOMContentLoaded", function() {
 
 #    function updateDateTime() {
@@ -37,7 +37,7 @@
 # </body>
 # </html> after i made all those files i went to the terminal and went where my Dockerfile is placed and did the following commands; docker image build -t dockerfile . docker run -d -p 8080:80 --name wilson2 dockerfile and then i tested it on the browser
 # Task implementation => what is the way you have implemented this? 
-# Task troubleshooting => what were the problems encountered?
+# Task troubleshooting => what were the problems encountered? I couldn't connect the datascript and the dockerfile. I first copy the script from data and deleted it and then i recreated the file datascript and it worked.
 # Task verification => ![SS Browser Docker](https://github.com/wilson6r/Devasc_Skills_YourInitals/blob/main/docker1.png?raw=true)
 
 
@@ -99,7 +99,47 @@
 
 
 # Task name => Danc
-# Task preparation => what preparation is necessary to perform the task?
+# Task preparation => # I create a folder named "Danc" with a script.py file in it then i put this in the file;
+# import requests
+# import datetime
+# import json
+# requests.packages.urllib3.disable_warnings()
+
+# DNAC_scheme = 'https://'
+# DNAC_authority='sandboxdnac.cisco.com'
+# DNAC_port=':443'
+# DNAC_path_token='/dna/system/api/v1/auth/toke'
+# DNAC_path='/dna/intent/api/v1/network-device'
+# DNAC_user = 'devnetuser'
+# DNAC_psw = 'Cisco123!'
+
+# DATE AND TIME
+# print("Current date and time: ")
+# print(datetime.datetime.now())
+
+# TOKEN REQUEST
+# token_req_url = DNAC_scheme + DNAC_authority #+ DNAC_path_token
+# auth = (DNAC_user, DNAC_psw)
+# req = requests.request('POST', token_req_url, #auth=auth, verify=False)
+# token = req.json()['Token']
+
+# INVENTORY REQUEST
+# req_url = DNAC_scheme + DNAC_authority + #DNAC_port + DNAC_path
+# headers = {'X-Auth-Token': token}
+# resp_devices = requests.request('GET', req_url, #headers=headers, verify=False)
+# resp_devices_json = resp_devices.json()
+
+# FILTER RESPONSE DATA
+# for device in resp_devices_json['response']:
+#    if device['type'] is not None:
+#        print('===')
+#        print('Hostname: ' + device['hostname'])
+#        print('Family  : ' + device['family'])
+#        print('MAC: ' + device['macAddress'])
+#        print('IP: ' + device['managementIpAddress'])
+#        print('Software version: ' + #device['softwareVersion'])
+#        print('Reachability: ' + #device['reachabilityStatus']) 
+# then i went to the terminal to run it with this; command python3 script.py
 # Task implementation => what is the way you have implemented this? 
-# Task troubleshooting => what were the problems encountered?
+# Task troubleshooting => what were the problems encountered? I didn't find some things for the script so i asked chat gpt and he helped me directly.
 # Task verification => ![SS Terminal](https://github.com/wilson6r/Devasc_Skills_YourInitals/blob/main/danc.png?raw=true)
